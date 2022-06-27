@@ -1,0 +1,39 @@
+@media only screen and (max-width: 600px) {
+
+    .rateCardWrapper{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: #9C1C9C;
+        margin-bottom: 20%;
+        box-shadow: 10px 0px 10px black;
+
+        h1{
+            font-size: 25px;
+            color: #616190;
+        }
+        h3{
+
+        }
+        p{
+            font-style: italic;
+            font-size: 18px;
+        }
+        h2{
+            color: #616161;
+        }
+    }
+    .info{
+        text-align: center;
+        margin: 0px 5%;
+
+        P{
+            text-align: start;
+            color: #616161;
+            line-height: 30px;
+            font-style: italic;
+        }
+    }
+}
