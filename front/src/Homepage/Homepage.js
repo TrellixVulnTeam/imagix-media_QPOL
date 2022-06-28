@@ -54,7 +54,7 @@ function Homepage() {
                     </div>
                     <div className="about">
                         <h3>Imagix</h3>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita vero, facere coLorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita vero, facere corporis dolore voluptatum iure veritatis quasi in ipsum. Nemo illum ratione recusandae nam incidunt impedit, inventore aspernatur vel. Iure eos totam sed quos omnis fugiat tenetur ea natus doloremque. Dicta quo similique tenetur harum, eligendi temporibus repellendus dolore quisquam?rporis dolore voluptatum iure veritatis quasi in ipsum. Nemo illum ratione recusandae nam incidunt impedit, inventore aspernatur vel. Iure eos totam sed quos omnis fugiat tenetur ea natus doloremque. Dicta quo similique tenetur harum, eligendi temporibus repellendus dolore quisquam?</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo exercitationem praesentium labore ut mollitia nam consequatur eveniet nobis. Nesciunt adipisci voluptatum, consectetur quibusdam veniam recusandae beatae quos assumenda quia amet!</p>
                         <a href="">Book Us</a>
                     </div>
                </div>

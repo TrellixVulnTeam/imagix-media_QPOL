@@ -6,8 +6,8 @@ import Rates from './Rates/Rates';
 function App() {
   return (
     <div className="App">
-     <Homepage/>
-     {/* <Gallery/> */}
+     {/* <Homepage/> */}
+     <Gallery/>
      {/* <Rates/> */}
     </div>
   );
