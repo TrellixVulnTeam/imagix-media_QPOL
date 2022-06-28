@@ -31,7 +31,6 @@ function Gallery() {
         const formData = new FormData()
         formData.append('file', file)
         formData.append('filename', filename)
-        console.log(filename + file);
 
 
         axios.post(

@@ -45,7 +45,6 @@ app.post('/images/upload', async(req, res)=>{
     const filename = req.body.filename
     const savefolder = __dirname + '/front/src/Assets/'
   
-    console.log(file);
     
 
     //Function to move files to the desires folder
@@ -59,7 +58,7 @@ app.post('/images/upload', async(req, res)=>{
 
 
     //Function to save the details of the uploaded image to the database
-    const newImage = new image({imageName: filename, imagePath: __dirname + filename})
+    const newImage = new image({imageName: filename, imagePath: __dirname + "/"+ filename})
 
     try {
         await newImage.save()
