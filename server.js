@@ -77,6 +77,11 @@ app.post('/images/upload', async(req, res)=>{
         res.send(result)
     })
 })
+//file to be run on hosting
+if(process.env.NODE_ENV === 'production'){
+    app.use(express.static(front/build))
+}
+
 
 //Initializing the port and running the server
 const port = process.env.PORT || 4000
