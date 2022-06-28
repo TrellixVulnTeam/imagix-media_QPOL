@@ -30,13 +30,16 @@ function Homepage() {
                 </div>
             </div>
             <div className="body">
+                  
                <div className="canva">
+               
                    <img src={camera} alt="" />
                    <div className="text">
                        <span>IMAGIX</span>
                        <span>MEDIA</span>
                    </div>
                     <div className="right"></div>
+                    
                     <div className="buttons">
                         <span>Gallery</span>
                         <span>Rates</span>
@@ -88,7 +91,7 @@ function Homepage() {
                         
                     </div>
 
-                    <div>Find us on all social media, alias; imagix africa</div>
+                    <div className='end'>Find us on all social medias, alias imagix africa</div>
                     <div className="footer">
                         <span>
                             <h4>Made For</h4>
