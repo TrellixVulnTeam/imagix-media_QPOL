@@ -79,7 +79,7 @@ app.post('/images/upload', async(req, res)=>{
 })
 //file to be run on hosting
 if(process.env.NODE_ENV === 'production'){
-    app.use(express.static(front/build))
+    app.use(express.static('front/build'))
 }
 
 
