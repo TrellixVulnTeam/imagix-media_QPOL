@@ -25,6 +25,10 @@
                 .hTittle{
                     position: absolute;
                     left: 3%;
+                    a{
+                        text-decoration: none;
+                        color: inherit;
+                    }
 
                     span{
                         color: #AD1717;
@@ -136,6 +140,12 @@
                             padding: 1%;
                             width: 100px;
                             background-color: #D9D9D9;
+
+                            a{
+                                text-decoration: none;
+                                color: inherit;
+                                font-size: inherit;
+                            }
                         }
                         span:nth-child(2), span:nth-child(4){
                             background-color: #040404;

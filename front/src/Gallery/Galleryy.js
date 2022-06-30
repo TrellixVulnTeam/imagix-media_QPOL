@@ -1,5 +1,6 @@
 // Importing the necessary dependencies
 import React, { useEffect, useState } from 'react'
+import { Link } from "react-router-dom"
 import './Gallery.scss'
 import { storage } from "./firebase";
 import { ref, uploadBytes, getDownloadURL, listAll} from 'firebase/storage'
@@ -52,7 +53,7 @@ function Gallery() {
     <div className='galleryWrapper'>
         <div className="header">
                 <div className="hTittle">
-                    <span>IMAGIX <br /> MEDIA</span>
+                   <Link to='/'> <span>IMAGIX <br /> MEDIA</span> </Link> 
                 </div>
                 <div className="socials">
                     <div className="links">
@@ -88,9 +89,9 @@ function Gallery() {
                 />
                 <button onClick={uploadImage}>Add Image</button>
             </div>
-            <div className="login">
+            {/* <div className="login">
                 <a href="">LOGIN</a>
-            </div>
+            </div> */}
     </div>
   )
 }

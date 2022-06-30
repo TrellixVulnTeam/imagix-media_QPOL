@@ -5,6 +5,7 @@ import facebookB from '../Assets/facebookB.png'
 import instagramB from '../Assets/instagram.webp'
 import gmailB from '../Assets/gmail.jpg'
 import instagram from '../Assets/instagram.jpg'
+import { Link } from "react-router-dom"
 import camera from '../Assets/camera.jpeg'
 import aboutImage from '../Assets/about.jpg'
 import phone from '../Assets/phone.png'
@@ -17,7 +18,7 @@ function Homepage() {
         <div className="landingPage">
             <div className="header">
                 <div className="hTittle">
-                    <span>IMAGIX <br /> MEDIA</span>
+                <Link to='/'> <span>IMAGIX <br /> MEDIA</span> </Link> 
                 </div>
                 <div className="socials">
                     <div className="links">
@@ -41,10 +42,10 @@ function Homepage() {
                     <div className="right"></div>
                     
                     <div className="buttons">
-                        <span>Gallery</span>
-                        <span>Rates</span>
-                        <span>Contacts</span>
-                        <span>Book Now</span>
+                        <span> <Link to='/gallery'>Gallery</Link></span>
+                        <span><Link to='/rates'>Rates</Link></span>
+                        <span><Link to='/gallery'>Works</Link></span>
+                        <span><Link to='/rates'>Book Now</Link></span>
                     </div>
                </div>
                <div className="pageTwo">
@@ -78,7 +79,7 @@ function Homepage() {
                         </div>
                     </div>
                </div>
-               <div className="pageFour">
+               <div className="pageFour" id='contacts'>
                     <h2>Contact Us Via</h2>
                     <div className="links">
                         <a target="_blank" href="https://www.facebook.com/scola.imagix"><img src={facebookB} alt="" /></a>

@@ -2,6 +2,7 @@ import React from 'react'
 import './Rates.scss'
 import facebook from '../Assets/facebook.png'
 import instagram from '../Assets/instagram.jpg'
+import { Link } from "react-router-dom"
 import RateCard from './RateCard'
 
 function Rates() {
@@ -9,7 +10,7 @@ function Rates() {
     <div className='ratesWrapper'>
         <div className="header">
                 <div className="hTittle">
-                    <span>IMAGIX <br /> MEDIA</span>
+                <Link to='/'> <span>IMAGIX <br /> MEDIA</span> </Link> 
                 </div>
                 <div className="socials">
                     <div className="links">
