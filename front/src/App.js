@@ -1,5 +1,5 @@
 import './App.scss';
-import Gallery from './Gallery/Gallery';
+import Gallery from './Gallery/Galleryy';
 import Homepage from './Homepage/Homepage';
 import Rates from './Rates/Rates';
 
