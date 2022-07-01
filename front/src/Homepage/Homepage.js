@@ -55,8 +55,8 @@ function Homepage() {
                     </div>
                     <div className="about">
                         <h3>Imagix</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo exercitationem praesentium labore ut mollitia nam consequatur eveniet nobis. Nesciunt adipisci voluptatum, consectetur quibusdam veniam recusandae beatae quos assumenda quia amet!</p>
-                        <a href="">Book Us</a>
+                        <p>At Imagix, we have specialized in Photography and Videography for all types of events. You are guaranteed high quality, timely and the best experience while working with us. Our rates are affordable, and cover all aspects of our daily lives that are worth making a memory of. <br /> Work with us for the best experience.</p>
+                        <Link to='/rates'>Book Now</Link>
                     </div>
                </div>
                <div className="pageThree">
@@ -72,14 +72,14 @@ function Homepage() {
                         <span>Rallies</span>
                     </div>
                     <div className="desc">
-                        <p>We shoot Proffesional Images and videos in all of the above.Click Button below to book us or see our rates</p>
+                        <p>We shoot Proffesional Images and Videos in all of the above.Click Button below to book us or see our rates</p>
                         <div className="links">
-                            <a href="">Rates</a>
-                            <a href="">Book Now</a>
+                            <span><Link to='/rates'>Rates</Link></span>
+                            <span><Link to='/rates'>Book Now</Link></span>
                         </div>
                     </div>
                </div>
-               <div className="pageFour" id='contacts'>
+               <div className="pageFour">
                     <h2>Contact Us Via</h2>
                     <div className="links">
                         <a target="_blank" href="https://www.facebook.com/scola.imagix"><img src={facebookB} alt="" /></a>

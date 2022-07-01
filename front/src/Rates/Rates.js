@@ -10,7 +10,7 @@ function Rates() {
     <div className='ratesWrapper'>
         <div className="header">
                 <div className="hTittle">
-                <Link to='/'> <span>IMAGIX <br /> MEDIA</span> </Link> 
+                    <Link to='/'> <span>IMAGIX <br /> MEDIA</span> </Link> 
                 </div>
                 <div className="socials">
                     <div className="links">
