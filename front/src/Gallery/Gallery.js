@@ -1,93 +1,97 @@
 // Importing the necessary dependencies
-import React, { useEffect, useState } from 'react'
-import './Gallery.scss'
-import axios from 'axios'
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import "./Gallery.scss";
+import { storage } from "./firebase";
+import { ref, uploadBytes, getDownloadURL, listAll } from "firebase/storage";
+import { v4 } from "uuid";
 
 //Import the needed images
-import facebook from '../Assets/facebook.png'
-import instagram from '../Assets/instagram.jpg'
-import image1 from '../Assets/img1.jpg'
-import image2 from '../Assets/img2.jpg'
-import image3 from '../Assets/img3.jpg'
-import image4 from '../Assets/img4.jpg'
-import image5 from '../Assets/img5.jpg'
-import inputImg from '../Assets/image.png'
+import facebook from "../Assets/facebook.png";
+import instagram from "../Assets/instagram.jpg";
+import inputImg from "../Assets/image.png";
 
 function Gallery() {
+  //create states for files and image urls
+  const [imageUpload, setImageUpload] = useState(null);
+  const [imageUrls, setImageUrls] = useState([]);
 
-    const [file, setFile] = useState()
-    const [filename, setFilename] = useState('')
-    const [allImages, setAllImages] = useState([])
+  const imagesListRef = ref(storage, "imagix-media/");
 
-    useEffect(()=>{
-        axios.get("http://localhost:4000/images/getimages").then((response)=>{
-            setAllImages(response.data)
-            
-        })
-      },[])
-  
-
-    const uploadImage = (e)=>{
-        const formData = new FormData()
-        formData.append('file', file)
-        formData.append('filename', filename)
-
-
-        axios.post(
-            "http://localhost:4000/images/upload",
-             formData
-             )        
+  //Function to upload file on button click
+  const uploadImage = () => {
+    if (imageUpload == null) {
+      return;
+    } else {
+      const imageRef = ref(storage, `imagix-media/${imageUpload.name + v4()}`);
+      uploadBytes(imageRef, imageUpload).then((snapshot) => {
+        alert("Image added");
+        getDownloadURL(snapshot.ref).then((url) => {
+          setImageUrls((prev) => [...prev, url]);
+        });
+      });
     }
-  return (
-    <div className='galleryWrapper'>
-        <div className="header">
-                <div className="hTittle">
-                    <span>IMAGIX <br /> MEDIA</span>
-                </div>
-                <div className="socials">
-                    <div className="links">
-                        <a target="_blank" href="https://www.facebook.com/scola.imagix"><img src={facebook} alt=""/></a>
-                        <a target="_blank" href="https://instagram.com/imagixafrica?igshid=YmMyMTA2M2Y"><img src={instagram} alt="" /></a>
-                    </div>
-                    <div className="phone">
-                        <span>0702659667</span>
-                    </div>
-                </div>
-            </div>
-            <h2>Gallery</h2>
-            <div className="images">
-                {allImages.map((image)=>{
-                    const Image = require(`../Assets/${image.imageName}`)
-                    return(
-                            <img src={Image} alt="" />
-                        )
-                })}
+  };
 
-               
-                
-                {/* <img src={image1} alt=""/> */}
-                {/* <img src={image2} alt=""/> */}
-                {/* <img src={image3} alt=""/> */}
-                {/* <img src={image4} alt=""/> */}
-                {/* <img src={image5} alt=""/> */}
-            </div>
-            <div className="addLocation">
-                <label htmlFor="inputField"><img src={inputImg} alt="" /></label>
-                <input onChange={
-                    (e)=>{ 
-                        setFile(e.target.files[0])
-                        setFilename(e.target.files[0].name)
-                    }} 
-                    type="file" 
-                    id='inputField'
-                />
-                <button onClick={uploadImage}>Add Image</button>
-            </div>
-            <div className="login">
-                <a href="">LOGIN</a>
-            </div>
+  useEffect(() => {
+    listAll(imagesListRef).then((response) => {
+      response.items.forEach((item) => {
+        getDownloadURL(item).then((url) => {
+          setImageUrls((prev) => [...prev, url]);
+        });
+      });
+    });
+  }, []);
+
+  return (
+    <div className="galleryWrapper">
+      <div className="header">
+        <div className="hTittle">
+          <Link to="/">
+            {" "}
+            <span>
+              IMAGIX <br /> MEDIA
+            </span>{" "}
+          </Link>
+        </div>
+        <div className="socials">
+          <div className="links">
+            <a target="_blank" href="https://www.facebook.com/scola.imagix">
+              <img src={facebook} alt="" />
+            </a>
+            <a
+              target="_blank"
+              href="https://instagram.com/imagixafrica?igshid=YmMyMTA2M2Y"
+            >
+              <img src={instagram} alt="" />
+            </a>
+          </div>
+          <div className="phone">
+            <span>0702659667</span>
+          </div>
+        </div>
+      </div>
+      <h2>Gallery</h2>
+      <div className="images">
+        {imageUrls.map((url) => {
+          return <img src={url} alt="" />;
+        })}
+      </div>
+      <div className="addLocation">
+        <label htmlFor="inputField">
+          <img src={inputImg} alt="" />
+        </label>
+        <input
+          onChange={(event) => {
+            setImageUpload(event.target.files[0]);
+          }}
+          type="file"
+          id="inputField"
+        />
+        <button onClick={uploadImage}>Add Image</button>
+      </div>
     </div>
-  )
+  );
 }
 
-export default Gallery
+export default Gallery;
