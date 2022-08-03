@@ -89,6 +89,7 @@ function Gallery() {
           id="inputField"
         />
         <button onClick={uploadImage}>Add Image</button>
+        <button onClick={uploadImage}>Add Image</button>
       </div>
     </div>
   );
