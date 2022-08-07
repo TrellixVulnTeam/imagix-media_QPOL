@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const { login, verifyJwt } = require("../controllers/controllers");
 
-router.post("/sign-in", verifyJwt, login);
+router.post("/sign-in", login);
+
+router.post("/verify", verifyJwt);
 
 module.exports = router;

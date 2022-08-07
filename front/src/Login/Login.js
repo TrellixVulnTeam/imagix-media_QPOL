@@ -3,8 +3,8 @@ import { Navbar, Container, Form, Button, Col } from "react-bootstrap";
 import logo from "../Assets/imagixlogo.jpg";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Axios from "react-axios";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Login = () => {
   // States and const variable
@@ -22,8 +22,15 @@ const Login = () => {
         position: toast.POSITION.TOP_CENTER,
       });
     } else {
-      // Axios.post(, { username, password }).then((response) => {});
-      navigate("/photos");
+      axios
+        .post("http://localhost:4000/auth/sign-in", {
+          username,
+          password,
+        })
+        .then((response) => {
+          localStorage.setItem("token", response.data.token);
+          console.log(response);
+        });
     }
   };
 

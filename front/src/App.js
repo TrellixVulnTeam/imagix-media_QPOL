@@ -5,8 +5,21 @@ import Photos from "./myGallery/My_gallery";
 import Rates from "./Rates/Rates";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./Login/Login";
+import { useEffect } from "react";
+import axios from "axios";
 
 function App() {
+  useEffect(() => {
+    axios
+      .post("http://localhost:4000/auth/verify", {
+        headers: {
+          "x-access-token": localStorage.getItem("token"),
+        },
+      })
+      .then((response) => {
+        console.log(response);
+      });
+  }, []);
   return (
     <div className="App">
       <Router>

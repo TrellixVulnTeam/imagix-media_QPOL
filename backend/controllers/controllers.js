@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 
 //middleware for verification of jwt
 module.exports.verifyJwt = (req, res, next) => {
-  const token = req.headers["x-access.token"];
+  const token = req.body.headers["x-access-token"];
   if (!token) {
     res.send("Token not provided");
   } else {
@@ -12,6 +12,7 @@ module.exports.verifyJwt = (req, res, next) => {
         res.json({ auth: false, msg: "Authentication failed" });
       } else {
         req.userId = decoded.id;
+        res.json({ auth: true, msg: "Authentication Success" });
         next();
       }
     });
@@ -22,6 +23,7 @@ module.exports.login = (req, res) => {
   const { username, password } = req.body;
 
   User.find({ userName: username, password: password }, (error, result) => {
+    console.log(result);
     if (error) {
       return console.log(error);
     } else {

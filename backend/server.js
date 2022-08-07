@@ -4,7 +4,7 @@ const dotenv = require("dotenv");
 const fileupload = require("express-fileupload");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const AuthRoutes = require("./backend/routes/AuthRoutes");
+const AuthRoutes = require("./routes/AuthRoutes");
 
 const app = express();
 
