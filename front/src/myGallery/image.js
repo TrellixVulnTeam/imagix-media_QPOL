@@ -3,6 +3,8 @@ import Card from "react-bootstrap/Card";
 import { storage } from "../Gallery/firebase";
 import { ref, deleteObject } from "firebase/storage";
 import Button from "react-bootstrap/Button";
+import "./image.scss";
+
 function image({ image }) {
   const deleteImage = (image) => {
     const imageRef = ref(storage, image);
@@ -15,8 +17,9 @@ function image({ image }) {
     <div>
       <Card className="container m-4" style={{ width: "18rem" }}>
         <Card.Img
+          className="image"
           variant="top"
-          style={{ height: "15rem", width: "17rem" }}
+          style={{ height: "20rem", width: "17rem" }}
           src={image}
         />
         <Card.Body>
@@ -30,7 +33,6 @@ function image({ image }) {
             >
               Delete
             </Button>
-            <Button variant="warning">Edit</Button>
           </div>
         </Card.Body>
       </Card>

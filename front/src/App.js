@@ -19,6 +19,7 @@ function App() {
       })
       .then((response) => {
         setLoginStatus(response.data.auth);
+        console.log(loginStatus);
       });
   }, []);
   return (

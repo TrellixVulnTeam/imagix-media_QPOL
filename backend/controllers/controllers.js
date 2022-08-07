@@ -23,7 +23,6 @@ module.exports.login = (req, res) => {
   const { username, password } = req.body;
 
   User.find({ userName: username, password: password }, (error, result) => {
-    console.log(result);
     if (error) {
       return console.log(error);
     } else {

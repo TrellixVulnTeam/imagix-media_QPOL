@@ -3,4 +3,47 @@
     display: flex;
     flex-wrap: wrap;
   }
+  .addLocation{
+    flex-direction: column;
+    margin-top: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10%;
+
+    input{
+        display: none;
+    }
+
+    label{
+        margin: 5%;
+        display: flex;
+        width: 10%;
+        height: 10%;
+        position: relative;
+        box-shadow: 0px 0px 10px black;
+        border-radius: 25px 0px 25px 0px;
+        cursor: pointer;
+       
+
+        img{
+            width: 100%;
+            height: 100%;
+            border-radius: inherit;
+        }
+
+    }
+
+    button{
+        width: 165px;
+        height: 50px;
+        border-radius: 30px;
+        background-color: #D9D9D9;
+        color: #000000;
+        font-size: 18px;
+        font-weight: 600;
+        margin: 5%;
+        cursor: pointer;
+    }
+}
 }

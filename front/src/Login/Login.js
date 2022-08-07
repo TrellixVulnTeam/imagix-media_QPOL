@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Navbar, Container, Form, Button, Col } from "react-bootstrap";
 import logo from "../Assets/imagixlogo.jpg";
 import { ToastContainer, toast } from "react-toastify";
@@ -10,13 +10,13 @@ const Login = () => {
   // States and const variable
   const navigate = useNavigate();
 
+  const [loginStatus, setLoginStatus] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   // function for loggin in
 
   const login = (e) => {
-    e.preventDefault();
     if (!username.length > 0 && !password > 0) {
       return toast.error("Please fill all fields", {
         position: toast.POSITION.TOP_CENTER,
@@ -29,7 +29,7 @@ const Login = () => {
         })
         .then((response) => {
           localStorage.setItem("token", response.data.token);
-          console.log(response);
+          navigate("/");
         });
     }
   };
