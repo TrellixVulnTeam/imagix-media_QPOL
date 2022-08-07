@@ -5,10 +5,11 @@ import Photos from "./myGallery/My_gallery";
 import Rates from "./Rates/Rates";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./Login/Login";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 function App() {
+  const [loginStatus, setLoginStatus] = useState(false);
   useEffect(() => {
     axios
       .post("http://localhost:4000/auth/verify", {
@@ -17,7 +18,7 @@ function App() {
         },
       })
       .then((response) => {
-        console.log(response);
+        setLoginStatus(response.data.auth);
       });
   }, []);
   return (
@@ -27,7 +28,10 @@ function App() {
           <Route path="/" element={<Homepage />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/rates" element={<Rates />} />
-          <Route path="/photos" element={<Photos />} />
+          <Route
+            path="/photos"
+            element={loginStatus ? <Photos /> : <Login />}
+          />
           <Route path="/login" element={<Login />} />
         </Routes>
       </Router>
